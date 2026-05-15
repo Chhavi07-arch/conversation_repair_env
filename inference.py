@@ -57,7 +57,7 @@ def _normalize_score(sum_rewards: float, steps_taken: int) -> float:
     """
     if steps_taken <= 0:
         return 0.0
-    w = float(MAX_STEPS)
+    w = float(steps_taken)
     return max(0.0, min(1.0, (sum_rewards + w) / (2.0 * w)))
 
 
