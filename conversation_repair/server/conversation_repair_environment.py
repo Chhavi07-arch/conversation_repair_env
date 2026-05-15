@@ -375,7 +375,7 @@ class ConversationRepairEnvironment(Environment):
                     self._state.conflicting_claims = [
                         c for c in self._state.conflicting_claims if c.conflict_id != cid
                     ]
-                    active_ids.discard(cid)
+                    
                     components["conflict_understanding_full"] = (
                         components.get("conflict_understanding_full", 0.0) + _REWARD_CONFLICT_FULL
                     )
