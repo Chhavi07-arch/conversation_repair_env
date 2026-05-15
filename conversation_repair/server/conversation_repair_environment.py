@@ -203,7 +203,10 @@ class ConversationRepairEnvironment(Environment):
             return False
         if self._state.conflicting_claims:
             return False
-        ev, _ = self._fact_eval_from_context(self._state.extracted_context)
+        
+        ev = self._state.last_fact_evaluation
+        if ev is None:
+            return False
         if ev.spurious_keys or ev.missing_keys or ev.wrong_value_keys:
             return False
         res_text = (action.resolution_summary or action.content or "").strip()
