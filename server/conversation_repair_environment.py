@@ -100,7 +100,9 @@ def _utc_now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
-def _action_fingerprint(action: ConversationRepairAction) -> str:
+def _action_fingerprint(action: ConversationRepairAction):
+    state = action.state if hasattr(action, "state") else None
+    return (getattr(state, "extracted_context", None), getattr(state, "fact_evaluation", None)) -> str:
     """Stable hash of what the agent did this turn (for redundancy detection)."""
     ef = {k: _normalize_text(v) for k, v in sorted(action.extracted_facts.items())}
     ca = {k: _normalize_text(v) for k, v in sorted(action.conflict_alignments.items())}
