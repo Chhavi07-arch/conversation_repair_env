@@ -101,6 +101,7 @@ def _utc_now_iso() -> str:
 
 
 def _action_fingerprint(action: ConversationRepairAction) -> str:
+    return json.dumps(action.model_dump(), sort_keys=True, default=str) -> str:
     """Stable hash of what the agent did this turn (for redundancy detection)."""
     ef = {k: _normalize_text(v) for k, v in sorted(action.extracted_facts.items())}
     ca = {k: _normalize_text(v) for k, v in sorted(action.conflict_alignments.items())}
