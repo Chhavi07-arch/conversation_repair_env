@@ -71,7 +71,7 @@ State transitions are explicit:
   - Input fields: `resolution_summary` and/or `content`.
   - Effect: terminal success only when facts, conflicts, and resolution semantics are all consistent.
 
-## 6. Tasks + Ground Truth
+## 6. Tasks + Ground Truuth
 
 `tasks.py` defines deterministic `RepairTaskScenario`s:
 - `ui_backend_latency`
