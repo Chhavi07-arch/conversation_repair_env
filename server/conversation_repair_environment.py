@@ -69,7 +69,6 @@ except ImportError:
     from tasks import DEFAULT_TASK_ID, get_task  # type: ignore[no-redef]
 # --- Episode limits ---
 _MAX_EPISODE_STEPS = 25
-
 # --- Reward coefficients (step total clamped to [-1, 1]) ---
 _BASE_STEP_COST = -0.015
 
